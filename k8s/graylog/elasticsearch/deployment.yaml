@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+  namespace: graylog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: elasticsearch
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: elasticsearch
+    spec:
+      containers:
+      - args:
+        - elasticsearch
+        - -Des.cluster.name=graylog
+        image: elasticsearch:2
+        # Repositório oficial  - elasticsearch:2
+        name: elasticsearch
+        resources: {}
+
+        volumeMounts:
+        - name: elasticsearch-volume
+          mountPath: /usr/share/elasticsearch/data
+
+      restartPolicy: Always
+
+      volumes:
+      - name: elasticsearch-volume
+        persistentVolumeClaim:
+          claimName: elasticsearch-pvc
+status: {}

@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ronsal-com-br
+  namespace: cert-manager
+spec:
+  secretName: ronsal-com-br-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: "ronsal.com.br"
+  dnsNames:
+  - "ronsal.com.br"
+  - "*.ronsal.com.br"

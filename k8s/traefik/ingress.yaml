@@ -1,0 +1,26 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: traefik-daemon-set
+  namespace: traefik
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+spec:
+  tls:
+    secretName: ronsal-com-br-tls
+  rules:
+  - host: traefik.ronsal.com.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: traefik-daemon-set
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  entryPoints:
+  - websecure

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: graylog
+  name: mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: mongo
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: mongo
+    spec:
+      containers:
+      - image: mongo:3
+        # Repositório oficial - mongo:3
+        name: mongo
+        resources: {}
+        
+        volumeMounts:
+        - name: mongodb-volume
+          mountPath: /data/db
+
+      restartPolicy: Always
+
+      volumes:
+      - name: mongodb-volume
+        persistentVolumeClaim:
+          claimName: mongodb-pvc
+status: {}
