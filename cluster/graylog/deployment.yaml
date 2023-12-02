@@ -4,22 +4,23 @@ metadata:
   name: graylog
   namespace: graylog
   labels:
-    allow.http: "true"
-    application: graylog
+    app: graylog
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: graylog
+      app: graylog
   strategy: {}
   template:
     metadata:
       labels:
-        service: graylog
+        app: graylog
     spec:
       serviceAccount: graylog
       containers:
       - env:
+        # - name: GRAYLOG2_REST_ENABLE_CORS
+        #   value: "true"
         - name: GRAYLOG_HTTP_ENABLE_CORS
           value: "true"
         - name: GRAYLOG_WEB_ENDPOINT_URI

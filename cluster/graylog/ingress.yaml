@@ -5,9 +5,8 @@ metadata:
   name: graylog
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls.certresolver: cloudflare
-    # allow.http: "true"
 spec:
   tls:
     - secretName: rancher-ronsal-com-br-tls
