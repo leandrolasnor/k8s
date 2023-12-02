@@ -8,7 +8,7 @@ resources:
 - ./elasticsearch/persistent-volume-claim.yaml
 - persistent-volume-claim.yaml
 - cluster-role.yaml
-- cluster-role-biding.yaml
+- cluster-role-binding.yaml
 - ./elasticsearch/deployment.yaml
 - ./elasticsearch/service.yaml
 - ./mongo/deployment.yaml
@@ -19,7 +19,7 @@ resources:
 - ingress.yaml
 - ./fluentd/service-account.yaml
 - ./fluentd/cluster-role.yaml
-- ./fluentd/cluster-role-biding.yaml
+- ./fluentd/cluster-role-binding.yaml
 - ./fluentd/daemon-set.yaml
 
 namespace: graylog

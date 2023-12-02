@@ -5,11 +5,14 @@ metadata:
   name: graylog
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.tls.certresolver: cloudflare
+    # allow.http: "true"
 spec:
+  tls:
+    - secretName: rancher-ronsal-com-br-tls
   rules:
-  - host: graylog.rancher.ronsal.com.br
+  - host: graylog.ronsal.com.br
     http:
       paths:
         - path: /

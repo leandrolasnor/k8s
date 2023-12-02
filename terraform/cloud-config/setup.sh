@@ -5,6 +5,7 @@ sudo sed -i -e '$anet.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
 sudo sysctl -p /etc/sysctl.conf
 if [ $(hostname) == "rancher-server" ]
 then
+  sudo apt install -y pwgen
   sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 -v /opt/rancher:/var/lib/rancher --privileged rancher/rancher:stable
 fi
 sudo apt install zsh -y
