@@ -20,7 +20,7 @@ spec:
       containers:
       - env:
         - name: GRAYLOG_WEB_ENDPOINT_URI
-          value: https://graylog.ronsal.com.br/api
+          value: 'https://graylog.ronsal.com.br/api'
         - name: GRAYLOG_ELASTICSEARCH_HOSTS
           value: "http://elasticsearch.graylog.svc.cluster.local:9200"
         - name: ELASTICSEARCH_DISCOVERY_ZEN_PING_MULTICAST_ENABLED
@@ -28,9 +28,9 @@ spec:
         - name: ELASTICSEARCH_DISCOVERY_ZEN_PING_UNICAST_HOSTS
           value: "elasticsearch.graylog.svc.cluster.local:9300"
         - name: GRAYLOG_PASSWORD_SECRET
-          value: Rt6Z0aJvBZL7d7yQUIGzaL8DKwlybjYznnjlsvcowDqV9PXaUy4S19aeh3Gl2NO1sRZYXVxiXipOcqCxUgcrMV6nvYgp9CNs
+          value: 'fVTAtZ7w34mqtNSvITbClkiYrb0feo5Yzlw7G3CxUNBLHE1s2MxvrRuu9wXO3yVMjR2rQnRbGLRnDhlVwqnoOnnEK6aMhsGc'
         - name: GRAYLOG_ROOT_PASSWORD_SHA2
-          value: fa72460a30af5bab75ba59012e8a812cf5436c49b1d8412af8cc8c656346ae18
+          value: '6196f9c12aa26f8ff24b239fa764914f887852e43b92da0ce4c7834f14f28cb1'
         image: docker.io/graylog2/server:2.3.0-1 
         name: graylog
         ports:
